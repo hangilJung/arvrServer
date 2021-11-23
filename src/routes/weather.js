@@ -160,12 +160,8 @@ router.post("/header", async (req, res) => {
 			'비/눈'
 		when s.pty = 3 then
 			'눈'
-		when s.pty = 5 then
-			'빗방울'
-		when s.pty = 6 then
-			'빗방울눈날림'
-		when s.pty = 7 then
-			'눈날림'
+    when s.pty = 4 then
+			'소나기'
 	end	
 	) as weatherName,
   s.tmp,
