@@ -3,7 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const logger = require("./src/config/logger");
-const { headerErrorCode } = require("./src/headerErrorCode");
+const headerErrorCode  = require("./src/headerErrorCode");
 
 dotenv.config();
 
@@ -23,15 +23,13 @@ app.use((req, res) => {
     header: {},
   };
 
-  try {
-  } catch (error) {
     logger.info("accessIP : " + ip);
     response.header = headerErrorCode.httpError;
     response.header.receiveMethodAndUrl = `${req.method} ${req.url}`;
 
     logger.error(`app.js method url error, ${req.method} ${req.url}`);
     res.status(404).json(response);
-  }
+  
 });
 
 module.exports = app;
